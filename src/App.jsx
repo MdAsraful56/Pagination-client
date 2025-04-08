@@ -1,57 +1,16 @@
-import { createBrowserRouter, Route, RouterProvider } from 'react-router-dom'
+import { useState } from 'react'
 import './App.css'
-import { createRoutesFromChildren } from 'react-router'
-import Main from './layouts/Main/Main'
-import Login from './components/Login/Login'
-import Checkout from './components/Checkout/Checkout'
+import Header from './components/Header/Header'
+import Shop from './components/Shop/Shop'
 
 function App() {
-
-  const router = createBrowserRouter(
-    createRoutesFromChildren(
-      <Route path='/' element={ <Main /> }>
-        <Route path='checkout' element={ <Checkout />  } />
-        <Route path='login' element={ <Login /> } />
-      </Route>
-    )
-  )
-
-
-
-
-  path: '/',
-  element: <Home></Home>,
-  children: [
-    {
-      path: '/',
-      element: <Shop></Shop>
-    },
-    {
-      path: 'orders',
-      element: <Orders></Orders>,
-      loader: cartProductsLoader
-    },
-    {
-      path: 'inventory',
-      element: <Inventory></Inventory>
-    },
-    {
-      path:'checkout',
-      element: <Checkout></Checkout>
-    },
-    {
-      path: 'login',
-      element: <Login></Login>
-    }
-
-
-
-
+  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <RouterProvider router={router} />
-    </>
+    <div className="App">
+      <Header></Header>
+      <Shop></Shop>
+    </div>
   )
 }
 
