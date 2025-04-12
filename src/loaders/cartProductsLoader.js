@@ -10,14 +10,14 @@ const cartProductsLoader = async () => {
     // console.log(storedCartIds)
     const savedCart = [];
 
-    const loadedProducts = await fetch('http://localhost:5000/productsByIds', {
+    const loadedProducts = await fetch('https://pagination-server-site.vercel.app/productsByIds', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
         },
         body: JSON.stringify(storedCartIds)
     });
-    
+
     const products = await loadedProducts.json();
 
 

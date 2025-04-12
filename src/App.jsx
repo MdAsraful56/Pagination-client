@@ -14,7 +14,7 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path='/' element={ <Main/> }>
-        <Route index element={ <Shop/> } loader={ () => fetch(`http://localhost:5000/productsCount`) } />
+        <Route index element={ <Shop/> } loader={ cartProductsLoader } />
         <Route path='orders' element={ <Orders/> } loader={ cartProductsLoader } />
         <Route path='inventory' element={ <Inventory/> } />
         <Route path='checkout' element={ <Checkout/> } />
